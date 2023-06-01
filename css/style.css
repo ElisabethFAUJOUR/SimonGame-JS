@@ -1,7 +1,12 @@
-main#playground {
+body {
+  background-color: #021422;
+}
+
+.playground {
   margin: 15px auto;
   width: 45vw;
   text-align: center;
+  position:relative;
 }
 
 div.cell {
@@ -11,23 +16,54 @@ div.cell {
   min-width: 50px;
   display: inline-block;
   margin: 3px;
-  border: 0px solid white;
+  border: 0px solid #021422;
+  border-radius: 20px;
   box-sizing: border-box;
   transition: border ease .1s;
 }
 
-button#go {
+.go {
+  color:white;
   display: block;
   width: 15vw;
   font-size: 2em;
   height: 10vh;
-  background-color: #ccc;
-  border: none;
+  background-color: #06000e;
+  border: 1px solid white;
+  border-radius: 20px;
   margin: 3vh auto;
   cursor: pointer;
 }
 
-div#message {
+.retry {
+  color:white;
+  display: block;
+  width: 15vw;
+  font-size: 2em;
+  background-color: #06000e;
+  border: 1px solid white;
+  border-radius: 20px;
+  margin: 3vh auto;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  padding:0.5em;
+}
+
+.message {
+  color: white;
   text-align: center;
   font-size: 2em;
+}
+
+.hidden {
+  display: none;
+}
+
+.result {
+  font-size: 2em;
+  text-align: center;
+  color: white;
 }
