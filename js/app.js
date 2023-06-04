@@ -3,7 +3,6 @@
  * @property {object} colors  - The four colors of the game 
  */
 
-
 const app = {
 
   colors: [
@@ -47,7 +46,6 @@ const app = {
     setTimeout(() => {
       document.getElementById(color).style.borderWidth = '0';
     }, 150);
-
   },
 
   /**
@@ -66,16 +64,11 @@ const app = {
    * Color sequence display 
    * @param {string} sequence - array that save the color sequence
    */
-  simonSays: function (sequence) {
-    // if sequence isn't empty
-    if (sequence && sequence.length) {
-      // show the message "Mémorisez la séquence"
-      app.showMessage('Mémorisez bien !');
-      // after 500ms, bump the first cell
-      setTimeout(app.bumpCell, 500, sequence[0]);
-      // plays the rest of the sequence after a longer pause (recursive function) until all colors have been displayed (slice(1) = sequence - 1 element)
-      setTimeout(app.simonSays, 850, sequence.slice(1));
-      // if sequence empty
+  simonSays: function (sequence) { // if sequence isn't empty
+    if (sequence && sequence.length) { // show the message "Mémorisez la séquence"
+      app.showMessage('Mémorisez bien !'); // after 500ms, bump the first cell
+      setTimeout(app.bumpCell, 500, sequence[0]); // plays the rest of the sequence after a longer pause (recursive function) until all colors have been displayed (slice(1) = sequence - 1 element)
+      setTimeout(app.simonSays, 850, sequence.slice(1)); // if sequence empty// if sequence empty
     } else {
       app.showMessage('A vous !');
     }
@@ -85,14 +78,10 @@ const app = {
    * Add a random color to the "Simon Says" sequence and play the sequence
    */
   nextSequence: function () {
-    // get a random number between 0 and 3 (four colors)
-    const random = Math.floor(Math.random() * app.colors.length);
-    // push the corresponding color to the sequence
-    app.sequence.push(app.colors[random]);
-    // show the message "Reproduisez la séquence"
-    app.showMessage('A vous !');
-    // start the new "Simon Says" sequence
-    app.simonSays(app.sequence);
+    const random = Math.floor(Math.random() * app.colors.length); // get a random number between 0 and 3 (four colors)
+    app.sequence.push(app.colors[random]); // push the corresponding color to the sequence
+    app.showMessage('A vous !'); // show the message "Reproduisez la séquence"
+    app.simonSays(app.sequence); // start the new "Simon Says" sequence
   },
 
   /**
@@ -120,10 +109,8 @@ const app = {
     document.querySelector('#result').textContent = '';
     app.sequence = [];
     for (let index = 0; index < 3; index++) {
-      // get a random number between 0 and 3
-      const random = Math.floor(Math.random() * app.colors.length);
-      // add the corresponding color to the sequence
-      app.sequence.push(app.colors[random]);
+      const random = Math.floor(Math.random() * app.colors.length); // get a random number between 0 and 3v
+      app.sequence.push(app.colors[random]); // add the corresponding color to the sequence
     }
 
     app.simonSays(app.sequence);
@@ -173,7 +160,6 @@ const app = {
   handleClickGoButton: function () {
     document.getElementById('go').addEventListener('click', app.newGame);
   },
-
 };
 
 // Launch init when DOM is ready
