@@ -108,6 +108,7 @@ const app = {
     app.hideRetryButton();
     document.querySelector('#result').textContent = '';
     app.sequence = [];
+    app.indexPlayer = 0;
     for (let index = 0; index < 3; index++) {
       const random = Math.floor(Math.random() * app.colors.length); // get a random number between 0 and 3v
       app.sequence.push(app.colors[random]); // add the corresponding color to the sequence
