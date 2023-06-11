@@ -16,11 +16,15 @@ const app = {
 
   indexPlayer: 0,
 
+  // ----- function init -----
+
   init: function () {
     app.hideRetryButton();
     app.drawCells();
-    app.handleClickGoButton();
+    app.listentoClickGoButton();
   },
+
+  // ----- functions -----
 
   /**
    * Create the four cells for the four colors / Event click on the color 
@@ -88,7 +92,7 @@ const app = {
    * Message indicating score at endgame
    */
   showResult: function () {
-    const score = app.sequence.length;
+    const score = app.sequence.length -1;
     document.querySelector('#result').textContent = `Votre score est de : ${score}`;
   },
 
@@ -134,8 +138,10 @@ const app = {
     retryButton.addEventListener('click', app.newGame);
   },
 
+  // ----- callback -----
+
   /**
-   * Player reproduces the color sequence by clicking on cells 
+   * Color click handler for the player
    */
   handlePlayerClick: function (event) {
     const clickedColor = event.target;
@@ -156,9 +162,9 @@ const app = {
   },
 
   /**
-   * Listen event Click Go Button => start a new game
+   * Listen the click Go Button => start a new game
    */
-  handleClickGoButton: function () {
+  listentoClickGoButton: function () {
     document.getElementById('go').addEventListener('click', app.newGame);
   },
 };
